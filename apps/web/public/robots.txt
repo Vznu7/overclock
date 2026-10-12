@@ -1,8 +1,9 @@
 User-agent: *
 Allow: /
 
-# Canonical XML Sitemap
+# Canonical Sitemaps
 Sitemap: https://www.theoverclock.tech/sitemap.xml
+Sitemap: https://www.theoverclock.tech/sitemap.txt
 
 # Directives for major search engine crawlers
 User-agent: Googlebot
