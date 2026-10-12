@@ -4,6 +4,7 @@ from app.core.database import SessionLocal, set_session_tenant
 from app.core.security import get_password_hash
 from app.domains.audit.models import AuditAction, AuditLog
 from app.domains.auth.models import User, UserRole
+from app.domains.jobwork.models import JobworkChallan, JobworkProcessor
 from app.domains.materials.models import (
     Material,
     MaterialCategory,
@@ -25,7 +26,6 @@ from app.domains.orders.models import (
     OrderStatus,
     Style,
 )
-from app.domains.jobwork.models import JobworkChallan, JobworkProcessor
 from app.domains.production.models import DailyProductionLog, ProductionLine
 from app.domains.tenants.models import Tenant, TenantSettings
 

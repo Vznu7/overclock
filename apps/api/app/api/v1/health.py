@@ -12,6 +12,7 @@ settings = get_settings()
 
 
 @router.get("/health/live", summary="Liveness Probe")
+@router.get("/healthz", summary="Render/K8s Liveness Probe")
 def liveness() -> dict[str, Any]:
     return {
         "status": "healthy",
