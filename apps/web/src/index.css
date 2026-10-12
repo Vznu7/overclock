@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-background: 8 9 14;     /* #08090e */
+    --color-surface: 14 16 23;      /* #0e1017 */
+    --color-text: 248 250 252;      /* #f8fafc */
+  }
+
+  body {
+    background-color: #08090e;
+    color: #f1f5f9;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: hidden;
+  }
+
+  /* Force numbers to align in columns */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Subtle tech grid background */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Dark glassmorphism */
+.glass-panel {
+  background: rgba(14, 16, 23, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(20, 23, 36, 0.85);
+  border-color: rgba(45, 212, 191, 0.3);
+  box-shadow: 0 0 25px -5px rgba(20, 184, 166, 0.15);
+}
+
+/* Dark scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #08090e;
+}
+::-webkit-scrollbar-thumb {
+  background: #272a3a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3b3f56;
+}

@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: overclock-api
+    runtime: python
+    region: oregon
+    plan: free
+    buildCommand: "pip install uv && uv pip install --system -e apps/api"
+    startCommand: "uvicorn app.main:app --app-dir apps/api --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /health/live
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: "false"
+      - key: DATABASE_URL
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: '["https://*.vercel.app","http://localhost:5173"]'

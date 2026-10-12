@@ -1,0 +1,89 @@
+{
+  "brand": {
+    "name": "OVERCLOCK",
+    "tagline": "Order-to-Production Control Tower",
+    "subtitle": "AI-Powered Factory Operating System for Garment Manufacturers"
+  },
+  "nav": {
+    "portal": "Company Portal",
+    "dashboard": "Control Tower",
+    "orders": "Orders & TNA",
+    "po_review": "PO Extraction",
+    "materials": "Materials & Stock",
+    "production": "Production Floor",
+    "jobwork": "Job-Work Hub",
+    "risk_evidence": "Risk Evidence Matrix",
+    "imports": "Import Wizard",
+    "settings": "Settings"
+  },
+  "portal": {
+    "hero_tag": "Factory Operating System v2.0",
+    "hero_title": "Predict garment shipment delay before it breaches.",
+    "hero_subtitle": "Built for Tiruppur knitwear export clusters. AI proposes, deterministic rules calculate, factory leaders decide. Zero LLM math, 100% cloud Postgres isolation.",
+    "telemetry_on_time": "On-Time Dispatch Forecast",
+    "telemetry_readiness": "Material Readiness Index",
+    "telemetry_efficiency": "Shop Floor Sewing Pace",
+    "search_placeholder": "Search factory suites, POs, or tools...",
+    "suite_merchandising": "Merchandising & Sourcing Suite",
+    "suite_merchandising_desc": "Buyer purchase orders, BOM formulas, delivery dates & critical path TNA",
+    "suite_floor": "Shop Floor Operations Suite",
+    "suite_floor_desc": "30-second mobile entry, line output pacing & SAM efficiency tracking",
+    "suite_jobwork": "Outside Job-Work Hub",
+    "suite_jobwork_desc": "Delivery challans, process weight shrinkage loss & anomaly tracking",
+    "suite_risk": "Risk Engine & Telemetry Tower",
+    "suite_risk_desc": "Unified R1-R6 risk ranking, floor telemetry & active blocker root-cause analysis"
+  },
+  "status": {
+    "healthy": "Systems Operational",
+    "degraded": "Service Degraded",
+    "connecting": "Connecting to Cloud DB..."
+  },
+  "dashboard": {
+    "title": "Executive Control Tower",
+    "subtitle": "Real-time visibility across orders, inventory, lines, and outside processing.",
+    "kpi_orders_at_risk": "Orders At Risk",
+    "kpi_shortage_week": "Material Shortages",
+    "kpi_production_rate": "Run-Rate Deficit Lines",
+    "kpi_overdue_jobwork": "Overdue Challans",
+    "radar_title": "Real-Time Risk Radar",
+    "active_orders": "Active Orders & Risk Ranking",
+    "audit_proof": "Mathematical Audit Proof"
+  },
+  "po_review": {
+    "title": "AI Purchase Order Extraction Engine",
+    "tag": "Document Intelligence",
+    "desc": "Upload raw buyer purchase order PDFs. The cost-first cascade extracts buyer PO numbers, styles, quantities, and dates into a side-by-side reviewable draft.",
+    "sample_presets": "Load Sample Presets:",
+    "upload_btn": "Upload Custom PDF",
+    "preview_title": "Buyer Purchase Order Document",
+    "draft_title": "Extracted Draft Order Fields",
+    "confirm_btn": "Confirm & Create Order in Supabase",
+    "success_title": "Order Successfully Created in Cloud Database!",
+    "qty_balanced": "Lines Balanced",
+    "qty_mismatch": "Qty Mismatch"
+  },
+  "jobwork": {
+    "title": "Outside Job-Work Reconciliation Hub",
+    "tag": "Weight Loss & Challan Tracking",
+    "desc": "Track fabric issued to external dye houses, rotary printers, compacting mills, and embroidery units with strict delivery challans and process loss monitoring.",
+    "kpi_open_challans": "Open Outward Challans",
+    "kpi_active_weight": "Active Outside Weight",
+    "kpi_anomalies": "Weight Loss Anomalies (>3.5%)",
+    "kpi_processors": "Registered Processors",
+    "issue_btn": "Issue Outward Challan",
+    "receive_btn": "Receive Inward"
+  },
+  "actions": {
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "retry": "Retry Connection",
+    "submit": "Submit Entry",
+    "view_evidence": "View Evidence",
+    "reset": "Reset",
+    "add_row": "Add Row"
+  },
+  "demo_banner": {
+    "title": "DEMO ENVIRONMENT",
+    "message": "Fictional data for Tiruppur knitwear export cluster. Stored securely on Supabase PostgreSQL cloud."
+  }
+}
