@@ -206,7 +206,7 @@ export const MaterialsPage: React.FC = () => {
       toolTag="Store & Inventory"
       description="Material specifications, style consumption formulas, double-entry immutable stock ledger, and deterministic risk rules (R1 Fabric Deficit & R2 Trim Shortage)."
       actions={
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={() => loadData()}
             className="p-1.5 rounded-lg border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.06] text-zinc-300 transition-colors"
@@ -216,17 +216,19 @@ export const MaterialsPage: React.FC = () => {
           </button>
           <button
             onClick={() => setShowGrnModal(true)}
-            className="px-3 py-1.5 rounded-lg border border-teal-500/30 bg-teal-500/10 hover:bg-teal-500/20 text-teal-400 text-xs font-semibold inline-flex items-center gap-1.5 transition-colors"
+            className="px-2.5 sm:px-3 py-1.5 rounded-lg border border-teal-500/30 bg-teal-500/10 hover:bg-teal-500/20 text-teal-400 text-xs font-semibold inline-flex items-center gap-1 sm:gap-1.5 transition-colors"
           >
             <ArrowDownLeft className="w-3.5 h-3.5" />
-            <span>Receive Goods (GRN)</span>
+            <span className="hidden sm:inline">Receive Goods (GRN)</span>
+            <span className="sm:hidden">GRN</span>
           </button>
           <button
             onClick={() => setShowAddMaterialModal(true)}
-            className="px-3 py-1.5 rounded-lg bg-teal-500 hover:bg-teal-400 text-[#090a0f] font-semibold text-xs inline-flex items-center gap-1.5 transition-colors shadow-sm"
+            className="px-2.5 sm:px-3 py-1.5 rounded-lg bg-teal-500 hover:bg-teal-400 text-[#090a0f] font-semibold text-xs inline-flex items-center gap-1 sm:gap-1.5 transition-colors shadow-sm"
           >
             <Plus className="w-3.5 h-3.5" />
-            <span>Add Material</span>
+            <span className="hidden sm:inline">Add Material</span>
+            <span className="sm:hidden">Material</span>
           </button>
         </div>
       }

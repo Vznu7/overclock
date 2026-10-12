@@ -169,27 +169,28 @@ export const ProductionPage: React.FC = () => {
       toolTag="Phase 5 · Floor Tracking & Risk Rule R3"
       description="Sub-30 second rapid mobile floor logging, Standard Allowed Minutes (SAM) efficiency math, and deterministic Rule R3 sewing pacing slippage evaluation."
       actions={
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={() => loadData()}
-            className="p-2 rounded-lg border border-white/[0.08] hover:bg-white/[0.04] text-zinc-400 hover:text-zinc-200 transition-colors"
+            className="p-1.5 sm:p-2 rounded-lg border border-white/[0.08] hover:bg-white/[0.04] text-zinc-400 hover:text-zinc-200 transition-colors"
             title="Refresh Data"
           >
-            <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
+            <RefreshCw className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${loading ? 'animate-spin' : ''}`} />
           </button>
           <button
             onClick={() => setIsLineModalOpen(true)}
-            className="px-3 py-1.5 rounded-lg border border-white/[0.12] text-xs font-medium text-zinc-200 hover:bg-white/[0.05] transition-colors flex items-center gap-1.5"
+            className="px-2.5 sm:px-3 py-1.5 rounded-lg border border-white/[0.12] text-xs font-medium text-zinc-200 hover:bg-white/[0.05] transition-colors flex items-center gap-1 sm:gap-1.5"
           >
             <Plus className="w-3.5 h-3.5" />
             <span>Add Line</span>
           </button>
           <button
             onClick={() => setIsLogModalOpen(true)}
-            className="px-3.5 py-1.5 rounded-lg bg-teal-500 hover:bg-teal-400 text-slate-950 font-semibold text-xs transition-colors flex items-center gap-1.5 shadow-sm shadow-teal-500/20"
+            className="px-3 sm:px-3.5 py-1.5 rounded-lg bg-teal-500 hover:bg-teal-400 text-slate-950 font-semibold text-xs transition-colors flex items-center gap-1.5 shadow-sm shadow-teal-500/20"
           >
             <Smartphone className="w-3.5 h-3.5" />
-            <span>+ Quick Floor Log (30s)</span>
+            <span className="hidden sm:inline">+ Quick Floor Log (30s)</span>
+            <span className="sm:hidden">+ Quick Log</span>
           </button>
         </div>
       }

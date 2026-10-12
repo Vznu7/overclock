@@ -203,8 +203,8 @@ export const PoReviewPage: React.FC = () => {
       }
     >
       {/* Preset Samples Selector Bar */}
-      <div className="mb-6 p-4 rounded-xl bg-[#0c0d15] border border-white/[0.08] flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-2">
+      <div className="mb-6 p-4 rounded-xl bg-[#0c0d15] border border-white/[0.08] flex flex-wrap items-center justify-between gap-3 w-full max-w-full">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 w-full sm:w-auto">
           <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider font-mono">
             {isTa ? 'மாதிரி ஆவணங்கள்:' : 'Load Sample Presets:'}
           </span>

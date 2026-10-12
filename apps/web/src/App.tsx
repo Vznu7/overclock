@@ -18,10 +18,10 @@ export const App: React.FC = () => {
   return (
     <BrowserRouter>
       <RouteSeo />
-      <div className="min-h-screen flex flex-col bg-[#08090e] text-zinc-100 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+      <div className="min-h-screen flex flex-col bg-[#08090e] text-zinc-100 font-sans selection:bg-teal-500/30 selection:text-teal-200 w-full max-w-full overflow-x-hidden">
         <Navbar />
         
-        <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <main className="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 overflow-x-hidden">
           <Routes>
             <Route path="/" element={<CompanyPortal />} />
             <Route path="/about" element={<AboutPage />} />

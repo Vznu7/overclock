@@ -169,28 +169,28 @@ export const Navbar: React.FC = () => {
   ]
 
   return (
-    <header className="sticky top-0 z-50 pt-2 pb-2 px-3 sm:px-6">
+    <header className="sticky top-0 z-50 pt-2 pb-2 px-2 sm:px-6 w-full max-w-full">
       {/* CampusLoom Frosted Floating Pill Header */}
-      <div className="max-w-6xl mx-auto bg-[#0a0b12]/80 backdrop-blur-xl border border-white/[0.08] shadow-2xl shadow-black/80 rounded-full px-3.5 py-2 flex items-center justify-between gap-3 transition-all duration-300">
+      <div className="max-w-6xl w-full mx-auto bg-[#0a0b12]/90 backdrop-blur-xl border border-white/[0.08] shadow-2xl shadow-black/80 rounded-full px-2.5 sm:px-3.5 py-1.5 sm:py-2 flex items-center justify-between gap-1.5 sm:gap-3 transition-all duration-300">
         
         {/* Brand & Home */}
-        <div className="flex items-center gap-3">
-          <Link to="/" className="flex items-center gap-2.5 group pl-1">
-            <div className="w-7 h-7 rounded-lg overflow-hidden border border-white/[0.15] bg-[#0c0d15] flex items-center justify-center group-hover:scale-105 group-hover:border-teal-400/60 transition-all shadow-md shadow-black/50 shrink-0">
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <Link to="/" className="flex items-center gap-2 group pl-0.5 sm:pl-1">
+            <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg overflow-hidden border border-white/[0.15] bg-[#0c0d15] flex items-center justify-center group-hover:scale-105 group-hover:border-teal-400/60 transition-all shadow-md shadow-black/50 shrink-0">
               <img src="/logo.png" alt="OVERCLOCK" className="w-full h-full object-cover" />
             </div>
-            <div className="flex items-baseline gap-1.5">
-              <span className="font-extrabold text-white text-sm tracking-tight group-hover:text-teal-300 transition-colors">
+            <div className="flex items-baseline gap-1">
+              <span className="font-extrabold text-white text-xs sm:text-sm tracking-tight group-hover:text-teal-300 transition-colors">
                 OVERCLOCK
               </span>
-              <span className="text-[9px] uppercase tracking-widest text-teal-400/80 font-mono hidden sm:inline px-1 py-0.2 rounded bg-teal-500/10 border border-teal-500/20">
+              <span className="text-[8px] sm:text-[9px] uppercase tracking-widest text-teal-400/80 font-mono hidden md:inline px-1 py-0.2 rounded bg-teal-500/10 border border-teal-500/20">
                 v2.0
               </span>
             </div>
           </Link>
 
-          {/* Quick Nav Links */}
-          <div className="hidden md:flex items-center gap-1 pl-2 border-l border-white/[0.08]">
+          {/* Quick Nav Links (Desktop Only) */}
+          <div className="hidden lg:flex items-center gap-1 pl-2 border-l border-white/[0.08]">
             <Link
               to="/"
               className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
@@ -214,33 +214,34 @@ export const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* Center: CampusLoom Tools Dropdown Trigger */}
-        <div className="relative">
+        {/* Center: Tools Dropdown Trigger */}
+        <div className="relative shrink-0">
           <button
             onClick={() => setSuiteMenuOpen(!suiteMenuOpen)}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-all border ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs font-medium transition-all border ${
               suiteMenuOpen 
                 ? 'bg-white/[0.12] text-white border-white/20 shadow-md' 
                 : 'bg-white/[0.03] text-zinc-300 border-white/[0.08] hover:bg-white/[0.07] hover:text-white'
             }`}
           >
-            <Sparkles className="w-3.5 h-3.5 text-teal-400" />
-            <span>{i18n.language === 'ta' ? 'தொழிற்சாலை கருவிகள்' : 'Factory Tools Suite'}</span>
-            <ChevronDown className={`w-3 h-3 transition-transform ${suiteMenuOpen ? 'rotate-180' : ''}`} />
+            <Sparkles className="w-3.5 h-3.5 text-teal-400 shrink-0" />
+            <span className="hidden sm:inline">{i18n.language === 'ta' ? 'தொழிற்சாலை கருவிகள்' : 'Factory Tools Suite'}</span>
+            <span className="sm:hidden text-[11px] font-semibold">{i18n.language === 'ta' ? 'கருவிகள்' : 'Tools'}</span>
+            <ChevronDown className={`w-3 h-3 transition-transform shrink-0 ${suiteMenuOpen ? 'rotate-180' : ''}`} />
           </button>
 
-          {/* CampusLoom Style Mega Dropdown Menu */}
+          {/* Mega Dropdown Menu - Perfectly bounded on mobile */}
           {suiteMenuOpen && (
-            <div className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[580px] max-w-[92vw] bg-[#0c0d16]/95 backdrop-blur-2xl border border-white/[0.12] rounded-2xl p-4 shadow-2xl shadow-black/90 z-50 animate-in fade-in zoom-in-95 duration-150">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="fixed sm:absolute inset-x-2 sm:inset-x-auto sm:left-1/2 sm:-translate-x-1/2 top-14 sm:top-full mt-2 w-auto sm:w-[580px] max-w-[96vw] bg-[#0c0d16]/98 backdrop-blur-2xl border border-white/[0.12] rounded-2xl p-3 sm:p-4 shadow-2xl shadow-black/90 z-50 animate-in fade-in zoom-in-95 duration-150 max-h-[82vh] overflow-y-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {toolCategories.map((cat, idx) => (
-                  <div key={idx} className="space-y-2">
+                  <div key={idx} className="space-y-1.5 sm:space-y-2">
                     <div className="flex items-center justify-between pb-1 border-b border-white/[0.06]">
                       <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400">
                         {cat.label}
                       </span>
                     </div>
-                    <div className="space-y-1">
+                    <div className="space-y-0.5 sm:space-y-1">
                       {cat.items.map((item, i) => {
                         const Icon = item.icon
                         const isActive = location.pathname === item.path
@@ -276,38 +277,39 @@ export const Navbar: React.FC = () => {
 
               <div className="mt-3 pt-3 border-t border-white/[0.06] flex items-center justify-between text-[11px] text-zinc-400 px-1">
                 <span className="flex items-center gap-1.5 font-mono text-[10px]">
-                  <Database className="w-3 h-3 text-emerald-400" />
-                  Supabase Cloud DB • Tiruppur Cluster
+                  <Database className="w-3 h-3 text-emerald-400 shrink-0" />
+                  <span className="truncate">Supabase Cloud DB</span>
                 </span>
                 <Link
                   to="/imports"
                   onClick={() => setSuiteMenuOpen(false)}
-                  className="text-zinc-400 hover:text-teal-300 transition-colors flex items-center gap-1 text-[11px]"
+                  className="text-zinc-400 hover:text-teal-300 transition-colors flex items-center gap-1 text-[11px] shrink-0"
                 >
                   <UploadCloud className="w-3 h-3" />
-                  <span>CSV/Excel Data Import</span>
+                  <span>Data Import</span>
                 </Link>
               </div>
             </div>
           )}
         </div>
 
-        {/* Right: Language Pill & Persona Switcher */}
-        <div className="flex items-center gap-2">
+        {/* Right: Actions, Language & Persona */}
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           {/* Live Cloud Status / Demo Mode Pill */}
           <button
             onClick={() => setBackendModalOpen(true)}
             title="Configure Backend API URL"
-            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[10px] font-mono transition-colors ${
+            className={`flex items-center gap-1 px-2 sm:px-2.5 py-1 rounded-full border text-[10px] font-mono transition-colors shrink-0 ${
               !isOfflineFallbackActive() && getApiBaseUrl()
                 ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-300 hover:bg-emerald-500/20'
                 : 'bg-amber-500/10 border-amber-500/30 text-amber-300 hover:bg-amber-500/20 shadow-sm'
             }`}
           >
-            <span className={`w-1.5 h-1.5 rounded-full ${
+            <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${
               !isOfflineFallbackActive() && getApiBaseUrl() ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'
             }`} />
-            <span>{!isOfflineFallbackActive() && getApiBaseUrl() ? 'Cloud Active' : 'Demo Mode • Connect API'}</span>
+            <span className="hidden md:inline">{!isOfflineFallbackActive() && getApiBaseUrl() ? 'Cloud Active' : 'Demo Mode • Connect API'}</span>
+            <span className="md:hidden text-[9px] font-semibold">{!isOfflineFallbackActive() && getApiBaseUrl() ? 'Cloud' : 'Demo'}</span>
           </button>
 
           {/* Language Toggle Pill */}
@@ -315,29 +317,29 @@ export const Navbar: React.FC = () => {
             onClick={toggleLanguage}
             data-testid="lang-toggle"
             title="Toggle English / தமிழ்"
-            className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-[11px] font-medium text-zinc-300 transition-colors"
+            className="flex items-center gap-1 px-2 sm:px-2.5 py-1 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-[10px] sm:text-[11px] font-medium text-zinc-300 transition-colors shrink-0"
           >
-            <Globe className="w-3 h-3 text-teal-400" />
-            <span className="font-semibold">{i18n.language === 'en' ? 'EN / தமிழ்' : 'தமிழ் / EN'}</span>
+            <Globe className="w-3 h-3 text-teal-400 shrink-0" />
+            <span className="font-semibold">{i18n.language === 'en' ? 'தமிழ்' : 'EN'}</span>
           </button>
 
           {/* User Persona Switcher */}
-          <div className="relative">
+          <div className="relative shrink-0">
             <button
               onClick={() => setUserMenuOpen(!userMenuOpen)}
-              className="flex items-center gap-2 pl-2 pr-2.5 py-1 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-xs transition-colors"
+              className="flex items-center gap-1 sm:gap-1.5 pl-1 sm:pl-1.5 pr-1.5 sm:pr-2 py-0.5 sm:py-1 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-xs transition-colors"
             >
-              <div className="w-5 h-5 rounded-full bg-gradient-to-tr from-cyan-600 to-teal-400 flex items-center justify-center text-[10px] font-bold text-white uppercase shadow-sm">
+              <div className="w-5 h-5 rounded-full bg-gradient-to-tr from-cyan-600 to-teal-400 flex items-center justify-center text-[10px] font-bold text-white uppercase shadow-sm shrink-0">
                 {currentUser?.full_name?.charAt(0) || 'U'}
               </div>
-              <span className="hidden sm:inline text-zinc-300 text-[11px] font-medium max-w-[85px] truncate">
+              <span className="hidden lg:inline text-zinc-300 text-[11px] font-medium max-w-[85px] truncate">
                 {currentUser?.role?.replace('_', ' ') || 'Demo'}
               </span>
-              <ChevronDown className="w-3 h-3 text-zinc-400" />
+              <ChevronDown className="w-3 h-3 text-zinc-400 shrink-0" />
             </button>
 
             {userMenuOpen && (
-              <div className="absolute right-0 top-full mt-2 w-64 bg-[#0d0e16]/95 backdrop-blur-xl border border-white/[0.12] rounded-2xl p-2 shadow-2xl z-50 animate-in fade-in duration-100">
+              <div className="absolute right-0 top-full mt-2 w-64 max-w-[88vw] bg-[#0d0e16]/98 backdrop-blur-xl border border-white/[0.12] rounded-2xl p-2 shadow-2xl z-50 animate-in fade-in duration-100">
                 <div className="px-3 py-2 border-b border-white/[0.06] mb-1">
                   <div className="text-xs font-semibold text-white">{currentUser?.full_name || 'Demo User'}</div>
                   <div className="text-[10px] text-zinc-400 font-mono capitalize">

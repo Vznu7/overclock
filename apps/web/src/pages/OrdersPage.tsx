@@ -205,7 +205,7 @@ export const OrdersPage: React.FC = () => {
       toolTag="Merchandising Suite"
       description="Manage buyer purchase orders, style master specifications, color/size quantity matrices, and delivery milestone approval gates (TNA)."
       actions={
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <button 
             onClick={() => loadData(true)}
             disabled={refreshing}
@@ -218,10 +218,11 @@ export const OrdersPage: React.FC = () => {
           <button 
             onClick={handleExportCsv}
             disabled={exporting}
-            className="px-3 py-1.5 rounded-lg border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.06] text-zinc-300 text-xs font-medium inline-flex items-center gap-1.5 transition-colors disabled:opacity-50"
+            className="px-2.5 sm:px-3 py-1.5 rounded-lg border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.06] text-zinc-300 text-xs font-medium inline-flex items-center gap-1 sm:gap-1.5 transition-colors disabled:opacity-50"
           >
             <Download className="w-3.5 h-3.5" />
-            <span>{exporting ? 'Exporting...' : 'Export CSV'}</span>
+            <span className="hidden sm:inline">{exporting ? 'Exporting...' : 'Export CSV'}</span>
+            <span className="sm:hidden">{exporting ? '...' : 'CSV'}</span>
           </button>
 
           <button 
@@ -234,10 +235,11 @@ export const OrdersPage: React.FC = () => {
                 style_id: prev.style_id || (styles[0]?.id || ''),
               }))
             }}
-            className="px-3 py-1.5 rounded-lg bg-teal-500 hover:bg-teal-400 text-[#090a0f] font-semibold text-xs inline-flex items-center gap-1.5 transition-colors shadow-sm"
+            className="px-2.5 sm:px-3 py-1.5 rounded-lg bg-teal-500 hover:bg-teal-400 text-[#090a0f] font-semibold text-xs inline-flex items-center gap-1 sm:gap-1.5 transition-colors shadow-sm"
           >
             <Plus className="w-3.5 h-3.5" />
-            <span>New Order</span>
+            <span className="hidden sm:inline">New Order</span>
+            <span className="sm:hidden">Order</span>
           </button>
         </div>
       }

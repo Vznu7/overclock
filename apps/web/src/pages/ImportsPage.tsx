@@ -69,13 +69,14 @@ H&M Global,HMG,HM-TEE-01,Bio-Wash Single Jersey Tee,Crew Neck Tee,PO-HM-4155,120
       toolTag="Data Management"
       description="Migrate historical spreadsheets into OVERCLOCK. Upload buyers, styles, orders, materials, and stock balances with pre-flight validation and downloadable error reports."
       actions={
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <button 
             onClick={handleDownloadTemplate}
-            className="px-3 py-1.5 rounded-lg border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.06] text-zinc-300 text-xs font-medium inline-flex items-center gap-1.5 transition-colors"
+            className="px-2.5 sm:px-3 py-1.5 rounded-lg border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.06] text-zinc-300 text-xs font-medium inline-flex items-center gap-1 sm:gap-1.5 transition-colors"
           >
             <Download className="w-3.5 h-3.5" />
-            <span>Download CSV Template</span>
+            <span className="hidden sm:inline">Download CSV Template</span>
+            <span className="sm:hidden">Template</span>
           </button>
         </div>
       }

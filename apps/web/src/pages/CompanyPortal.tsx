@@ -163,19 +163,19 @@ export const CompanyPortal: React.FC = () => {
   })
 
   return (
-    <div className="space-y-16 pb-28 max-w-6xl mx-auto px-4 sm:px-6">
+    <div className="space-y-12 sm:space-y-16 pb-28 max-w-6xl mx-auto px-2 sm:px-6 w-full max-w-full">
       
       {/* 1. OPENAI-STYLE OBSIDIAN EDITORIAL HERO */}
-      <section className="relative pt-12 pb-8 text-center max-w-4xl mx-auto space-y-6">
+      <section className="relative pt-8 sm:pt-12 pb-6 sm:pb-8 text-center max-w-4xl mx-auto space-y-5 sm:space-y-6 w-full max-w-full">
         {/* Subtle Background Glow */}
         <div className="absolute inset-0 -top-10 -z-10 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(45,212,191,0.12),transparent)] pointer-events-none" />
 
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium text-teal-300 bg-teal-500/[0.08] border border-teal-500/25 shadow-sm shadow-teal-500/10">
-          <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
-          <span>{i18n.language === 'ta' ? 'திருப்பூர் ஏற்றுமதி கிளஸ்டர் • தொழிற்சாலை OS v2.0' : 'Tiruppur Cluster Pilot • Factory OS v2.0'}</span>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium text-teal-300 bg-teal-500/[0.08] border border-teal-500/25 shadow-sm shadow-teal-500/10 max-w-[90vw] truncate">
+          <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse shrink-0" />
+          <span className="truncate">{i18n.language === 'ta' ? 'திருப்பூர் ஏற்றுமதி கிளஸ்டர் • தொழிற்சாலை OS v2.0' : 'Tiruppur Cluster Pilot • Factory OS v2.0'}</span>
         </div>
 
-        <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white leading-[1.08]">
+        <h1 className="text-3xl sm:text-6xl font-black tracking-tight text-white leading-[1.12] break-words">
           {i18n.language === 'ta' ? 'ஏற்றுமதி சரக்கு அனுப்புவதில் தாமதம் ' : 'Predict garment shipment delay '}
           <span className="bg-gradient-to-r from-teal-300 via-cyan-400 to-sky-400 bg-clip-text text-transparent">
             {i18n.language === 'ta' ? 'ஏற்படுவதற்கு முன்பே கண்டறியுங்கள்.' : 'before it breaches.'}
@@ -379,7 +379,7 @@ export const CompanyPortal: React.FC = () => {
           High-volume circular knit manufacturer operating 4 dedicated sewing lines (1,500 pcs/day), computer-aided marker spreading, laser cutting, and linked outside processors for reactive yarn dyeing, rotary screen printing, and bio-enzyme soft washing.
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2 w-full">
           <div className="p-3.5 rounded-2xl bg-white/[0.015] border border-white/[0.05]">
             <div className="text-[10px] font-mono text-zinc-500 uppercase">Lines Allocated</div>
             <div className="text-sm font-bold text-white mt-1">4 Active Lines</div>
@@ -404,7 +404,7 @@ export const CompanyPortal: React.FC = () => {
       </section>
 
       {/* 4. SEO FAQ & KNOWLEDGE BASE SECTION */}
-      <section id="faq" className="space-y-6 pt-4">
+      <section id="faq" className="space-y-6 pt-4 w-full max-w-full">
         <div className="pb-2 border-b border-white/[0.08]">
           <div className="text-xs font-mono uppercase tracking-widest text-teal-400 flex items-center gap-1.5">
             <span>02 / Platform Knowledge Base & FAQ</span>
@@ -461,8 +461,8 @@ export const CompanyPortal: React.FC = () => {
       </section>
 
       {/* 5. SEO SITEMAP & RICH FOOTER */}
-      <footer className="pt-10 border-t border-white/[0.08] space-y-8">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-xs text-zinc-400">
+      <footer className="pt-10 border-t border-white/[0.08] space-y-8 w-full max-w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs text-zinc-400 w-full">
           <div className="space-y-2.5">
             <div className="font-mono text-[11px] uppercase tracking-wider text-white font-semibold">
               Core Intelligence

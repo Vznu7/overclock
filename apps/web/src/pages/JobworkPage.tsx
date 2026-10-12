@@ -201,10 +201,10 @@ export const JobworkPage: React.FC = () => {
 
         {/* 2. RULE R4 RISK RADAR CARD */}
         {triggeredRisksCount > 0 && (
-          <div className="rounded-2xl bg-red-950/20 border border-red-500/30 p-4 space-y-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span className="p-1 rounded-lg bg-red-500/20 text-red-400">
+          <div className="rounded-2xl bg-red-950/20 border border-red-500/30 p-4 space-y-3 w-full max-w-full">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+              <div className="flex items-start sm:items-center gap-2">
+                <span className="p-1 rounded-lg bg-red-500/20 text-red-400 shrink-0 mt-0.5 sm:mt-0">
                   <AlertTriangle className="w-4 h-4" />
                 </span>
                 <div>
@@ -216,7 +216,7 @@ export const JobworkPage: React.FC = () => {
                   </p>
                 </div>
               </div>
-              <span className="px-2.5 py-0.5 rounded-full bg-red-500/20 text-red-300 text-[10px] font-mono uppercase tracking-wider">
+              <span className="px-2.5 py-0.5 rounded-full bg-red-500/20 text-red-300 text-[10px] font-mono uppercase tracking-wider self-start sm:self-auto shrink-0">
                 CRITICAL INTERVENTION
               </span>
             </div>

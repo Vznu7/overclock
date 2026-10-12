@@ -88,19 +88,21 @@ export const DashboardPage: React.FC = () => {
           : 'Live unified visibility across all active buyer purchase orders, material shortages, sewing lines run-rates, and overdue outside challans.'
       }
       actions={
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={loadData}
-            className="px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.06] text-zinc-300 text-xs font-medium inline-flex items-center gap-1.5 transition-colors"
+            className="px-2.5 sm:px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.06] text-zinc-300 text-xs font-medium inline-flex items-center gap-1 sm:gap-1.5 transition-colors"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
-            <span>{isTa ? 'புதுப்பி' : 'Sync Control Tower'}</span>
+            <span className="hidden sm:inline">{isTa ? 'புதுப்பி' : 'Sync Control Tower'}</span>
+            <span className="sm:hidden">{isTa ? 'புதுப்பி' : 'Sync'}</span>
           </button>
           <Link
             to="/orders"
-            className="px-4 py-1.5 rounded-full bg-teal-500 hover:bg-teal-400 text-[#090a0f] font-bold text-xs inline-flex items-center gap-1.5 transition-all shadow-sm shadow-teal-500/20"
+            className="px-3 sm:px-4 py-1.5 rounded-full bg-teal-500 hover:bg-teal-400 text-[#090a0f] font-bold text-xs inline-flex items-center gap-1 sm:gap-1.5 transition-all shadow-sm shadow-teal-500/20"
           >
-            <span>{isTa ? 'ஆர்டர்கள் (TNA)' : 'View Orders (TNA)'}</span>
+            <span className="hidden sm:inline">{isTa ? 'ஆர்டர்கள் (TNA)' : 'View Orders (TNA)'}</span>
+            <span className="sm:hidden">{isTa ? 'ஆர்டர்கள்' : 'Orders'}</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
         </div>

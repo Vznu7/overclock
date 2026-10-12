@@ -98,17 +98,19 @@ export const RiskEvidencePage: React.FC = () => {
       toolTag="100% Branch Coverage"
       description="Zero LLM calculation hallucination. Every risk evaluation executes pure mathematical Python functions over PostgreSQL records with immutable JSON audit evidence."
       actions={
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={loadData}
-            className="px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.06] text-zinc-300 text-xs font-medium inline-flex items-center gap-1.5 transition-colors"
+            className="px-2.5 sm:px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.06] text-zinc-300 text-xs font-medium inline-flex items-center gap-1 sm:gap-1.5 transition-colors"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
-            <span>Re-evaluate Matrix</span>
+            <span className="hidden sm:inline">Re-evaluate Matrix</span>
+            <span className="sm:hidden">Re-evaluate</span>
           </button>
-          <span className="px-3 py-1 rounded-full text-xs font-mono font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-1.5">
+          <span className="px-2.5 sm:px-3 py-1 rounded-full text-xs font-mono font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-1 sm:gap-1.5">
             <CheckCircle2 className="w-3.5 h-3.5" />
-            <span>35 Branch Tests Passed</span>
+            <span className="hidden sm:inline">35 Branch Tests Passed</span>
+            <span className="sm:hidden">35 Tests</span>
           </span>
         </div>
       }
