@@ -403,17 +403,124 @@ export const CompanyPortal: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. FOOTER */}
-      <footer className="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-zinc-500">
-        <div className="flex items-center gap-2">
-          <span className="font-semibold text-zinc-400">OVERCLOCK OS</span>
-          <span>•</span>
-          <span>Precision AI Radar for Garment Exporters</span>
+      {/* 4. SEO FAQ & KNOWLEDGE BASE SECTION */}
+      <section id="faq" className="space-y-6 pt-4">
+        <div className="pb-2 border-b border-white/[0.08]">
+          <div className="text-xs font-mono uppercase tracking-widest text-teal-400 flex items-center gap-1.5">
+            <span>02 / Platform Knowledge Base & FAQ</span>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-white mt-1">
+            {i18n.language === 'ta' ? 'அடிக்கடி கேட்கப்படும் கேள்விகள் (FAQ)' : 'Frequently Asked Questions about OVERCLOCK'}
+          </h2>
+          <p className="text-xs text-zinc-400 mt-1 max-w-2xl">
+            Everything you need to know about OVERCLOCK's predictive delivery radar, deterministic risk engine, and bilingual apparel manufacturing operating system.
+          </p>
         </div>
-        <div className="flex items-center gap-5">
-          <Link to="/about" className="hover:text-zinc-300 transition-colors">Architecture Specification</Link>
-          <Link to="/company" className="hover:text-zinc-300 transition-colors">Mill Settings</Link>
-          <span className="font-mono text-[11px] text-zinc-600">v2.0 • Supabase Cloud</span>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="p-5 rounded-2xl bg-[#0c0d16] border border-white/[0.08] space-y-2.5">
+            <h3 className="text-sm font-bold text-teal-300 flex items-center gap-2">
+              <span className="text-teal-400 font-mono text-xs">Q1:</span>
+              <span>What is OVERCLOCK and how does it predict garment shipment delays?</span>
+            </h3>
+            <p className="text-xs text-zinc-400 leading-relaxed">
+              OVERCLOCK is an AI-powered SaaS operating system built specifically for garment and apparel manufacturers. Unlike traditional static ERPs, OVERCLOCK uses a 100% deterministic mathematical risk engine (Rules R1 through R6) that correlates commercial buyer POs, fabric inward dates, double-entry stock ledgers, sewing SAM efficiency, and outside job-work processors to flag delivery risks days before an ex-factory breach occurs.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-[#0c0d16] border border-white/[0.08] space-y-2.5">
+            <h3 className="text-sm font-bold text-teal-300 flex items-center gap-2">
+              <span className="text-teal-400 font-mono text-xs">Q2:</span>
+              <span>Why does OVERCLOCK guarantee zero LLM math errors?</span>
+            </h3>
+            <p className="text-xs text-zinc-400 leading-relaxed">
+              Large language models are notoriously prone to arithmetic hallucinations. OVERCLOCK enforces a strict architectural division: LLMs are utilized solely for optical document parsing and natural-language draft explanations, while all calculations—BOM fabric consumption, stock balances, sewing SAM pacing, and shrinkage percentage loss—are computed by pure, branch-tested Python and TypeScript rules.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-[#0c0d16] border border-white/[0.08] space-y-2.5">
+            <h3 className="text-sm font-bold text-teal-300 flex items-center gap-2">
+              <span className="text-teal-400 font-mono text-xs">Q3:</span>
+              <span>How does OVERCLOCK support apparel export hubs like Tiruppur?</span>
+            </h3>
+            <p className="text-xs text-zinc-400 leading-relaxed">
+              OVERCLOCK is engineered for the fast-paced realities of Indian apparel clusters. It features out-of-the-box support for outside job-work delivery challans (dyeing, printing, embroidery, washing), automated weight loss reconciliation against Tiruppur industry thresholds (3.5%), and a 30-second mobile floor entry interface for floor supervisors.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-[#0c0d16] border border-white/[0.08] space-y-2.5">
+            <h3 className="text-sm font-bold text-teal-300 flex items-center gap-2">
+              <span className="text-teal-400 font-mono text-xs">Q4:</span>
+              <span>Is OVERCLOCK available in regional languages like Tamil (தமிழ்)?</span>
+            </h3>
+            <p className="text-xs text-zinc-400 leading-relaxed">
+              Yes! OVERCLOCK features native bilingual support with instant one-click switching between English and Tamil across all navigation menus, operational dashboards, telemetry badges, and modal dialogs. Floor supervisors and storekeepers can interact in Tamil while merchandisers review buyer specifications in English.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. SEO SITEMAP & RICH FOOTER */}
+      <footer className="pt-10 border-t border-white/[0.08] space-y-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-xs text-zinc-400">
+          <div className="space-y-2.5">
+            <div className="font-mono text-[11px] uppercase tracking-wider text-white font-semibold">
+              Core Intelligence
+            </div>
+            <ul className="space-y-1.5">
+              <li><Link to="/dashboard" className="hover:text-teal-300 transition-colors">Executive Control Tower</Link></li>
+              <li><Link to="/risk-evidence" className="hover:text-teal-300 transition-colors">Risk Evidence Matrix (R1-R6)</Link></li>
+              <li><Link to="/about" className="hover:text-teal-300 transition-colors">Architecture Specification</Link></li>
+            </ul>
+          </div>
+
+          <div className="space-y-2.5">
+            <div className="font-mono text-[11px] uppercase tracking-wider text-white font-semibold">
+              Merchandising
+            </div>
+            <ul className="space-y-1.5">
+              <li><Link to="/orders" className="hover:text-teal-300 transition-colors">Orders & TNA Milestones</Link></li>
+              <li><Link to="/po-review" className="hover:text-teal-300 transition-colors">AI PO Ingestion & Split-Screen</Link></li>
+              <li><Link to="/imports" className="hover:text-teal-300 transition-colors">CSV/Excel Data Migration</Link></li>
+            </ul>
+          </div>
+
+          <div className="space-y-2.5">
+            <div className="font-mono text-[11px] uppercase tracking-wider text-white font-semibold">
+              Store & Operations
+            </div>
+            <ul className="space-y-1.5">
+              <li><Link to="/materials" className="hover:text-teal-300 transition-colors">Fabric & Trims Stock Ledger</Link></li>
+              <li><Link to="/production" className="hover:text-teal-300 transition-colors">Floor Production Pacing</Link></li>
+              <li><Link to="/jobwork" className="hover:text-teal-300 transition-colors">Outside Job-Work Processor Hub</Link></li>
+            </ul>
+          </div>
+
+          <div className="space-y-2.5">
+            <div className="font-mono text-[11px] uppercase tracking-wider text-white font-semibold">
+              About OVERCLOCK
+            </div>
+            <p className="text-[11px] text-zinc-500 leading-relaxed">
+              OVERCLOCK is the leading multi-tenant AI SaaS for apparel exporters, knitwear manufacturers, and textile sourcing houses across Tiruppur, Surat, Ludhiana, and Bengaluru.
+            </p>
+          </div>
+        </div>
+
+        <div className="pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-zinc-500">
+          <div className="flex items-center gap-2">
+            <span className="font-extrabold text-white tracking-wider">OVERCLOCK</span>
+            <span>•</span>
+            <span>Factory Operating System v2.0</span>
+            <span>•</span>
+            <span className="text-teal-400 font-mono text-[11px]">#1 Predictive Garment Operations AI</span>
+          </div>
+          <div className="flex items-center gap-4 text-zinc-400">
+            <span>Tiruppur Cluster Pilot</span>
+            <span>•</span>
+            <span>PostgreSQL RLS Secured</span>
+            <span>•</span>
+            <span>Zero LLM Hallucinations</span>
+          </div>
         </div>
       </footer>
 

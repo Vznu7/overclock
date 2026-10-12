@@ -1,0 +1,48 @@
+{
+  "name": "OVERCLOCK — Garment Manufacturing OS",
+  "short_name": "OVERCLOCK",
+  "description": "Predict garment shipment delays before they breach with 100% deterministic risk radar and bilingual Tamil & English UI.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#08090e",
+  "theme_color": "#08090e",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Control Tower",
+      "short_name": "Radar",
+      "description": "View live delivery risk radar and R1–R6 rules",
+      "url": "/dashboard",
+      "icons": [{ "src": "/logo.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Orders & TNA",
+      "short_name": "Orders",
+      "description": "Manage buyer purchase orders and TNA gates",
+      "url": "/orders",
+      "icons": [{ "src": "/logo.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "AI PO Review",
+      "short_name": "AI PO",
+      "description": "Extract and ingest purchase order PDFs",
+      "url": "/po-review",
+      "icons": [{ "src": "/logo.png", "sizes": "192x192" }]
+    }
+  ]
+}

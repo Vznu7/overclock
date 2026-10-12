@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Canonical XML Sitemap
+Sitemap: https://overclock.vercel.app/sitemap.xml
+
+# Directives for major search engine crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Yandex
+Allow: /
