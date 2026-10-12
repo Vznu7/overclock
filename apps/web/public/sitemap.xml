@@ -2,69 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://overclock.vercel.app/</loc>
+    <loc>https://www.theoverclock.tech/</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://overclock.vercel.app/" />
-    <xhtml:link rel="alternate" hreflang="ta" href="https://overclock.vercel.app/?lang=ta" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.theoverclock.tech/" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://www.theoverclock.tech/?lang=ta" />
   </url>
   <url>
-    <loc>https://overclock.vercel.app/dashboard</loc>
+    <loc>https://www.theoverclock.tech/dashboard</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://overclock.vercel.app/orders</loc>
+    <loc>https://www.theoverclock.tech/orders</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://overclock.vercel.app/po-review</loc>
+    <loc>https://www.theoverclock.tech/po-review</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://overclock.vercel.app/materials</loc>
+    <loc>https://www.theoverclock.tech/materials</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://overclock.vercel.app/production</loc>
+    <loc>https://www.theoverclock.tech/production</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://overclock.vercel.app/jobwork</loc>
+    <loc>https://www.theoverclock.tech/jobwork</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://overclock.vercel.app/risk-evidence</loc>
+    <loc>https://www.theoverclock.tech/risk-evidence</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://overclock.vercel.app/about</loc>
+    <loc>https://www.theoverclock.tech/about</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://overclock.vercel.app/imports</loc>
+    <loc>https://www.theoverclock.tech/imports</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://overclock.vercel.app/company</loc>
+    <loc>https://www.theoverclock.tech/company</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
