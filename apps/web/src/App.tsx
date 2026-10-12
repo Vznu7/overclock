@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Navbar } from './components/layout/Navbar'
+import { RouteSeo } from './components/layout/RouteSeo'
 import { CompanyPortal } from './pages/CompanyPortal'
 import { DashboardPage } from './pages/DashboardPage'
 import { OrdersPage } from './pages/OrdersPage'
@@ -16,6 +17,7 @@ import { AboutPage } from './pages/AboutPage'
 export const App: React.FC = () => {
   return (
     <BrowserRouter>
+      <RouteSeo />
       <div className="min-h-screen flex flex-col bg-[#08090e] text-zinc-100 font-sans selection:bg-teal-500/30 selection:text-teal-200">
         <Navbar />
         
