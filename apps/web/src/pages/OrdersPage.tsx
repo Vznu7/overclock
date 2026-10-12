@@ -72,6 +72,13 @@ export const OrdersPage: React.FC = () => {
       setBuyers(buyersData)
       setStyles(stylesData)
 
+      if (buyersData.length > 0) {
+        setNewOrderForm(prev => ({ ...prev, buyer_id: prev.buyer_id || buyersData[0].id }))
+      }
+      if (stylesData.length > 0) {
+        setNewOrderForm(prev => ({ ...prev, style_id: prev.style_id || stylesData[0].id }))
+      }
+
       // Keep drawer in sync if open
       setSelectedOrder(prev => {
         if (!prev) return null
@@ -124,7 +131,16 @@ export const OrdersPage: React.FC = () => {
   const handleExportCsv = async () => {
     try {
       setExporting(true)
-      const blob = await downloadOrdersCsv()
+      let blob: Blob
+      try {
+        blob = await downloadOrdersCsv()
+      } catch {
+        const headers = 'Order Number,Buyer,Style,Quantity,Unit Price,Currency,Ex-Factory Date,Status\n'
+        const rows = orders.map(o => 
+          `"${o.order_number}","${o.buyer?.name || ''}","${o.style?.style_number || ''}",${o.total_quantity},${o.unit_price},"${o.currency}","${o.ex_factory_date}","${o.status}"`
+        ).join('\n')
+        blob = new Blob([headers + rows], { type: 'text/csv;charset=utf-8;' })
+      }
       const url = window.URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.href = url
@@ -209,7 +225,15 @@ export const OrdersPage: React.FC = () => {
           </button>
 
           <button 
-            onClick={() => setIsCreateOpen(true)}
+            onClick={() => {
+              setIsCreateOpen(true)
+              setNewOrderForm(prev => ({
+                ...prev,
+                order_number: prev.order_number || `PO-MANUAL-${Math.floor(1000 + Math.random() * 9000)}`,
+                buyer_id: prev.buyer_id || (buyers[0]?.id || ''),
+                style_id: prev.style_id || (styles[0]?.id || ''),
+              }))
+            }}
             className="px-3 py-1.5 rounded-lg bg-teal-500 hover:bg-teal-400 text-[#090a0f] font-semibold text-xs inline-flex items-center gap-1.5 transition-colors shadow-sm"
           >
             <Plus className="w-3.5 h-3.5" />

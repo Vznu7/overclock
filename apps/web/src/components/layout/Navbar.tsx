@@ -14,9 +14,19 @@ import {
   UserCheck,
   Sparkles,
   Globe,
-  Database
+  Database,
+  Link2,
+  X
 } from 'lucide-react'
-import { DEMO_USERS, getStoredUser, loginWithCredentials, UserSession } from '../../lib/api'
+import { 
+  DEMO_USERS, 
+  getStoredUser, 
+  loginWithCredentials, 
+  UserSession, 
+  getApiBaseUrl, 
+  setCustomApiUrl, 
+  isOfflineFallbackActive 
+} from '../../lib/api'
 
 export const Navbar: React.FC = () => {
   const { i18n } = useTranslation()
@@ -24,6 +34,41 @@ export const Navbar: React.FC = () => {
   const [suiteMenuOpen, setSuiteMenuOpen] = useState<boolean>(false)
   const [currentUser, setCurrentUser] = useState<UserSession | null>(getStoredUser())
   const [userMenuOpen, setUserMenuOpen] = useState<boolean>(false)
+  
+  // Backend Connection Modal State
+  const [backendModalOpen, setBackendModalOpen] = useState<boolean>(false)
+  const [customUrlInput, setCustomUrlInput] = useState<string>(getApiBaseUrl())
+  const [testStatus, setTestStatus] = useState<string | null>(null)
+  const [testing, setTesting] = useState<boolean>(false)
+
+  const handleTestConnection = async () => {
+    setTesting(true)
+    setTestStatus(null)
+    const url = customUrlInput.trim().replace(/\/+$/, '')
+    if (!url) {
+      setTestStatus('❌ Please enter an API URL')
+      setTesting(false)
+      return
+    }
+    try {
+      const res = await fetch(`${url}/healthz`)
+      if (res.ok) {
+        setTestStatus('✅ Connected successfully! (FastAPI 200 OK)')
+      } else {
+        setTestStatus(`⚠️ Server responded with HTTP ${res.status}`)
+      }
+    } catch {
+      setTestStatus('❌ Connection failed (Check URL or wait 30s if Render is waking up)')
+    } finally {
+      setTesting(false)
+    }
+  }
+
+  const handleSaveConnection = () => {
+    setCustomApiUrl(customUrlInput)
+    setBackendModalOpen(false)
+    window.location.reload()
+  }
 
   const handleSwitchUser = async (demo: typeof DEMO_USERS[0]) => {
     try {
@@ -249,11 +294,21 @@ export const Navbar: React.FC = () => {
 
         {/* Right: Language Pill & Persona Switcher */}
         <div className="flex items-center gap-2">
-          {/* Live Cloud Status Dot */}
-          <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-mono text-emerald-300">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Cloud Active</span>
-          </div>
+          {/* Live Cloud Status / Demo Mode Pill */}
+          <button
+            onClick={() => setBackendModalOpen(true)}
+            title="Configure Backend API URL"
+            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[10px] font-mono transition-colors ${
+              !isOfflineFallbackActive() && getApiBaseUrl()
+                ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-300 hover:bg-emerald-500/20'
+                : 'bg-amber-500/10 border-amber-500/30 text-amber-300 hover:bg-amber-500/20 shadow-sm'
+            }`}
+          >
+            <span className={`w-1.5 h-1.5 rounded-full ${
+              !isOfflineFallbackActive() && getApiBaseUrl() ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'
+            }`} />
+            <span>{!isOfflineFallbackActive() && getApiBaseUrl() ? 'Cloud Active' : 'Demo Mode • Connect API'}</span>
+          </button>
 
           {/* Language Toggle Pill */}
           <button
@@ -322,6 +377,89 @@ export const Navbar: React.FC = () => {
         </div>
 
       </div>
+
+      {/* Backend Connection Modal */}
+      {backendModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-md p-4 animate-in fade-in duration-150">
+          <div className="w-full max-w-md bg-[#0c0d16] border border-white/[0.12] rounded-2xl p-5 shadow-2xl text-left space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+              <div className="flex items-center gap-2">
+                <Link2 className="w-4 h-4 text-teal-400" />
+                <h3 className="text-sm font-semibold text-white">Backend API Connection</h3>
+              </div>
+              <button 
+                onClick={() => setBackendModalOpen(false)}
+                className="p-1 rounded text-zinc-400 hover:text-white"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <p className="text-xs text-zinc-400 leading-relaxed">
+              Connect your frontend to your live Render backend web service. Leave empty or click Reset to use the offline demo mill dataset.
+            </p>
+
+            <div className="space-y-1.5">
+              <label className="text-[11px] font-mono text-zinc-400 uppercase tracking-wider">
+                Render Backend URL
+              </label>
+              <input 
+                type="url"
+                value={customUrlInput}
+                onChange={e => setCustomUrlInput(e.target.value)}
+                placeholder="https://overclock-api.onrender.com"
+                className="w-full px-3 py-2 rounded-xl bg-[#090a0f] border border-white/[0.1] text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-teal-500 font-mono"
+              />
+              <div className="text-[10px] text-zinc-400">
+                Example: <code className="text-teal-300">https://your-service.onrender.com</code> (no trailing slash)
+              </div>
+            </div>
+
+            {testStatus && (
+              <div className={`p-2.5 rounded-xl text-xs font-mono border ${
+                testStatus.includes('✅') 
+                  ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-300' 
+                  : 'bg-rose-500/10 border-rose-500/20 text-rose-300'
+              }`}>
+                {testStatus}
+              </div>
+            )}
+
+            <div className="flex items-center justify-between pt-2 border-t border-white/[0.08] gap-2">
+              <button
+                type="button"
+                onClick={handleTestConnection}
+                disabled={testing}
+                className="px-3 py-1.5 rounded-xl border border-white/[0.1] bg-white/[0.04] hover:bg-white/[0.08] text-xs text-zinc-200 transition-colors disabled:opacity-50"
+              >
+                {testing ? 'Pinging...' : 'Test Connection'}
+              </button>
+
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCustomUrlInput('')
+                    setCustomApiUrl('')
+                    setBackendModalOpen(false)
+                    window.location.reload()
+                  }}
+                  className="px-3 py-1.5 rounded-xl text-xs text-zinc-400 hover:text-zinc-200 transition-colors"
+                >
+                  Use Demo
+                </button>
+                <button
+                  type="button"
+                  onClick={handleSaveConnection}
+                  className="px-4 py-1.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-[#090a0f] font-semibold text-xs transition-colors shadow-sm"
+                >
+                  Save & Connect
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   )
 }
